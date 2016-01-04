@@ -16,7 +16,7 @@ namespace Oxide.Plugins
 
         #region Configuration Data
         // Do not modify these values, to configure this plugin edit
-        // 'NoPrivate.json' in your server's config folder.
+        // 'NoPri.json' in your server's config folder.
         // <drive>:\...\server\<server identity>\oxide\config\
 
         private bool configChanged = false;
@@ -98,7 +98,7 @@ namespace Oxide.Plugins
                 return;
             }
 
-            string url = $"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={ApiKey}&steamids={steamId}";
+            string url = $"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={APIKey}&steamid={steamID}";
             Interface.GetMod().GetLibrary<WebRequests>("WebRequests").EnqueueGet(url, (code, response) => HasPrivateProfile(code, response, netuser), this);
         }
 
