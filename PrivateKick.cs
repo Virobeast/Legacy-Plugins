@@ -16,7 +16,7 @@ namespace Oxide.Plugins
 
         #region Configuration Data
         // Do not modify these values, to configure this plugin edit
-        // 'FamilyShareBlocker.json' in your server's config folder.
+        // 'PrivateKick.json' in your server's config folder.
         // <drive>:\...\server\<server identity>\oxide\config\
 
         private bool configChanged = false;
@@ -57,7 +57,7 @@ namespace Oxide.Plugins
 
         void Init()
         {
-            if (!permission.PermissionExists("CanUseGodmode")) permission.RegisterPermission("CanBeGod", this);
+            if (!permission.PermissionExists("CanPrivate")) permission.RegisterPermission("CanPrivate", this);
         }
         protected override void LoadDefaultConfig() => Log("New configuration file created.");
 
