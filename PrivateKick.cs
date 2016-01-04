@@ -16,7 +16,7 @@ namespace Oxide.Plugins
 
         #region Configuration Data
         // Do not modify these values, to configure this plugin edit
-        // 'PrivateKick.json' in your server's config folder.
+        // 'NoPrivate.json' in your server's config folder.
         // <drive>:\...\server\<server identity>\oxide\config\
 
         private bool configChanged = false;
