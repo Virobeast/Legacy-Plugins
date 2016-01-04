@@ -98,7 +98,7 @@ namespace Oxide.Plugins
                 return;
             }
 
-            string url = $"http://api.steampowered.com/IPlayerService/IsPlayingSharedGame/v0001/?key={APIKey}&steamid={steamID}&appid_playing=252490";
+            string url = $"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={ApiKey}&steamids={steamId}";
             Interface.GetMod().GetLibrary<WebRequests>("WebRequests").EnqueueGet(url, (code, response) => HasPrivateProfile(code, response, netuser), this);
         }
 
