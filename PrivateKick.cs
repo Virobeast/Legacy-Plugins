@@ -136,7 +136,7 @@ namespace Oxide.Plugins
             {
                 Log("Error! No Stea1m API key found.");
                 Log("You need to set your API key in the configuration file for this plugin to work!");
-                Log("To obtain an API key browse to http://steamcommunity.com/dev/apikey");
+                Log("To obtain an API2 key browse to http://steamcommunity.com/dev/apikey");
                 return;
             }
 
