@@ -39,17 +39,69 @@ namespace Oxide.Plugins
 
         #endregion
 
-        public class WebResponse
+        class WebResponse
         {
-
             [JsonProperty("response")]
             public Content Response { get; set; }
 
             public class Content
             {
+                [JsonProperty("players")]
+                public Player[] Players { get; set; }
+            }
 
-                [JsonProperty("lender_steamid")]
-                public string LenderSteamid { get; set; }
+            public class Player
+            {
+                [JsonProperty("steamid")]
+                public string Steamid;
+
+                [JsonProperty("communityvisibilitystate")]
+                public int Communityvisibilitystate;
+
+                [JsonProperty("profilestate")]
+                public int Profilestate;
+
+                [JsonProperty("personaname")]
+                public string Personaname;
+
+                [JsonProperty("lastlogoff")]
+                public int Lastlogoff;
+
+                [JsonProperty("profileurl")]
+                public string Profileurl;
+
+                [JsonProperty("avatar")]
+                public string Avatar;
+
+                [JsonProperty("avatarmedium")]
+                public string Avatarmedium;
+
+                [JsonProperty("avatarfull")]
+                public string Avatarfull;
+
+                [JsonProperty("personastate")]
+                public int Personastate;
+
+                [JsonProperty("realname")]
+                public string Realname;
+
+                [JsonProperty("primaryclanid")]
+                public string Primaryclanid;
+
+                [JsonProperty("timecreated")]
+                public int Timecreated;
+
+                [JsonProperty("personastateflags")]
+                public int Personastateflags;
+
+                [JsonProperty("loccountrycode")]
+                public string Loccountrycode;
+
+                [JsonProperty("locstatecode")]
+                public string Locstatecode;
+
+                [JsonProperty("loccityid")]
+                public int Loccityid;
             }
         }
 
@@ -82,7 +134,7 @@ namespace Oxide.Plugins
         {
             if (APIKey == defaultAPIKey || APIKey == "")
             {
-                Log("Error! No Steam API key found.");
+                Log("Error! No Stea1m API key found.");
                 Log("You need to set your API key in the configuration file for this plugin to work!");
                 Log("To obtain an API key browse to http://steamcommunity.com/dev/apikey");
                 return;
@@ -111,7 +163,7 @@ namespace Oxide.Plugins
             {
                 case 200:
                     var json = JsonConvert.DeserializeObject<WebResponse>(response);
-                    if (json.Response.LenderSteamid != "0")
+                    if (json.Response.Players[0].Communityvisibilitystate != 3)
                     {
                         if (logToConsole)
                             Log($"{playerName} ({steamID}) Has a private profile, kicking player...");
